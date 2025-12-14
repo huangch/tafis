@@ -1,0 +1,41 @@
+[build-system] 
+requires = ["setuptools>=68", "wheel"] 
+build-backend = "setuptools.build_meta" 
+
+[project] 
+name = "tafis" 
+version = "0.1.0" 
+description = "TSK-ANFIS regression pipeline: CSV -> train (GPU) -> extract fuzzy rules -> human-readable rules" 
+readme = "README.md" 
+requires-python = ">=3.10" 
+license = { text = "MIT" } 
+authors = [{ name = "TAFIS Contributors" }] 
+dependencies = [ 
+    "numpy>=1.23", 
+    "pandas>=2.0", 
+    "scikit-learn>=1.3", 
+    "torch>=2.1", 
+    "typer>=0.12", 
+    "pyyaml>=6.0", 
+    "rich>=13.0", 
+] 
+    
+[project.urls] 
+Homepage = "https://example.com" 
+
+[project.scripts] 
+# This creates a `tafis` command after installation: 
+# pip install -e . 
+# Then you can run: 
+# tafis train ... 
+tafis = "tafis.cli:app" 
+    
+[tool.setuptools] 
+package-dir = {"" = "src"} 
+
+[tool.setuptools.packages.find] 
+where = ["src"] 
+
+[tool.ruff] 
+line-length = 100 
+target-version = "py310"
